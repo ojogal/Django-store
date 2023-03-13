@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Home page{% endblock %}
+
+{% block content %}
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for product in products %}
+      <div class="col">
+        <div class="card h-100">
+          {% with first_image=product.image_set.first %}
+            {% if first_image %}
+            <div class="d-flex justify-content-center">
+              <img src="{{ first_image.image.url }}" alt="{{ product.name }}" style="max-height: 200px; ">
+            </div>  
+            {% endif %}
+          {% endwith %}
+          <div class="card-body text-center">
+            <h5 class="card-title"><a href="{% url 'show' product.id %}">{{ product.name }}</a></h5>
+            <p class="card-text">Price: ${{ product.price }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
