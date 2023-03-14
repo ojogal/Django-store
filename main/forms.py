@@ -20,15 +20,15 @@ class ProductForm(forms.ModelForm):
 
 
 class CharacteristicsForm(forms.Form):
-  key_1 = forms.CharField(max_length=255, required=False, initial='Brand:', widget=forms.TextInput(attrs={'class': 'form-control border-0', 'readonly': True}))
+  key_1 = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'placeholder': 'ex. Brand:'}))
   value_1 = forms.CharField(max_length=255, required=False, empty_value='n/a')
-  key_2 = forms.CharField(max_length=255, required=False, initial='Model number:', widget=forms.TextInput(attrs={'class': 'form-control border-0', 'readonly': True}))
+  key_2 = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'placeholder': 'ex. Model number:'}))
   value_2 = forms.CharField(max_length=255, required=False, empty_value='n/a')
-  key_3 = forms.CharField(max_length=255, required=False, initial='Screen/display size:', widget=forms.TextInput(attrs={'class': 'form-control border-0', 'readonly': True}))
+  key_3 = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'placeholder': 'ex. Screen/display size:'}))
   value_3 = forms.CharField(max_length=255, required=False, empty_value='n/a')
-  key_4 = forms.CharField(max_length=255, required=False, initial='Memory:', widget=forms.TextInput(attrs={'class': 'form-control border-0', 'readonly': True}))
+  key_4 = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'placeholder': 'ex. Memory:'}))
   value_4 = forms.CharField(max_length=255, required=False, empty_value='n/a')
-  key_5 = forms.CharField(max_length=255, required=False, initial='Color:', widget=forms.TextInput(attrs={'class': 'form-control border-0', 'readonly': True}))
+  key_5 = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'placeholder': 'ex. Color:'}))
   value_5 = forms.CharField(max_length=255, required=False, empty_value='n/a')
 
   # pre-fill the existing values with the data if it exists

@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'marketplace.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'marketplace',
+        'USER': 'sambewe',
+        'PASSWORD': 'songwe',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
