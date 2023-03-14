@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Product page{% endblock %}
+
+{% block content %}
+<div class="card mx-auto" style="width: 30rem;">
+  <div class="card-body">
+    <div class="text-center">
+      <h1>{{ product.name }}</h1>
+      {% for image in product.image_set.all %}
+        <img src="{{ image.image.url }}" alt="{{ product.name }} image" style="max-height: 200px;">
+      {% empty %}
+        <p>No images for this product.</p>
+      {% endfor %}
+      <p>Price: {{ product.price }}</p>
+      <p>Created at: {{ product.created_at }}</p>
+      <p>User: {{ product.user }}</p>
+    </div>
+    <h4>Characteristics:</h4>
+    <table>
+      <tbody>
+        {% for key, value in product.get_characteristics.items %}
+          <tr><th>{{ key }}:</th><td>{{ value }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <hr>
+    {% if user == product.user %}
+      <div class="row align-items-center">
+        <div class="col-12 d-flex justify-content-center"><a href="{% url 'update' product.id %}" class="btn btn-dark mb-2">Edit</a></div>
+        <br>
+        <form class="col-12 d-flex justify-content-center" method="POST" action="{% url 'delete' product.id %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-dark">Delete</button>
+        </form>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

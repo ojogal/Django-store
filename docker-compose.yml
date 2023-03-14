@@ -1,0 +1,23 @@
+version: '3.10'
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: marketplace
+      POSTGRES_USER: sambewe
+      POSTGRES_PASSWORD: songwe
+    container_name: postgres_db
+  app:
+    build: .
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/djangostore
+    image: app:djangostore
+    container_name: djangostore_container
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
