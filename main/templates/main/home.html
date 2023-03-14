@@ -10,7 +10,7 @@
           {% with first_image=product.image_set.first %}
             {% if first_image %}
             <div class="d-flex justify-content-center">
-              <img src="{{ first_image.image.url }}" alt="{{ product.name }}" style="max-height: 200px; ">
+              <img src="{{ first_image.image.url }}" alt="{{ product.name }}" style="max-height: 200px;">
             </div>  
             {% endif %}
           {% endwith %}

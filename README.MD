@@ -1,4 +1,4 @@
-Example video
+Example Video
 
     https://imgur.com/KkPRgM4
 

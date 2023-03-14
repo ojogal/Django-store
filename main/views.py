@@ -75,8 +75,12 @@ def update(request, pk):
       return redirect('home')
   else:
     product_form = ProductForm(instance=product)
+    initial = {}
     characteristics_data = product.get_characteristics()
-    characteristics_form = CharacteristicsForm(initial=characteristics_data)
+    for i, (key, value) in enumerate(characteristics_data.items()):
+        initial[f'key_{i+1}'] = key
+        initial[f'value_{i+1}'] = value
+    characteristics_form = CharacteristicsForm(initial=initial)
     # Filter images related to the product
     image_form = ImageForm(instance=product)
   return render(request, 'main/update.html', {

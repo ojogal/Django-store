@@ -19,12 +19,12 @@
             </li>
             {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link text-black" href="/logout">Logout</a>
+                <a class="nav-link text-black" href="logout">Logout</a>
               </li>
               <span class="navbar-text text-black"> Logged in as {{user.username}}</span>
             {% else %}
               <li class="nav-item">
-                <a class="nav-link text-black" href="/login">Login</a>
+                <a class="nav-link text-black" href="login">Login</a>
               </li>
             {% endif %}
           </ul>

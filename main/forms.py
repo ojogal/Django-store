@@ -34,11 +34,11 @@ class CharacteristicsForm(forms.Form):
   # pre-fill the existing values with the data if it exists
   def __init__(self, *args, **kwargs):
     initial = kwargs.get('initial', {})
-    self.base_fields['value_1'].initial = initial.get('Brand:', '')
-    self.base_fields['value_2'].initial = initial.get('Model number:', '')
-    self.base_fields['value_3'].initial = initial.get('Screen/display size:', '')
-    self.base_fields['value_4'].initial = initial.get('Memory:', '')
-    self.base_fields['value_5'].initial = initial.get('Color:', '')
+    self.base_fields['value_1'].initial = initial.get('', '')
+    self.base_fields['value_2'].initial = initial.get('', '')
+    self.base_fields['value_3'].initial = initial.get('', '')
+    self.base_fields['value_4'].initial = initial.get('', '')
+    self.base_fields['value_5'].initial = initial.get('', '')
     super().__init__(*args, **kwargs)
 
 
